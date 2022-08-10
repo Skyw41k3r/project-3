@@ -1,11 +1,11 @@
-import React, { usestate } from 'react';
+import React, { useState } from 'react';
 import NavTabs from './NavTabs';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 
 
 export default function HomePage() {
-    const [ currentPage, setCurrentPage] = usestate('Home');
+    const [ currentPage, setCurrentPage] = useState('Home');
     
     const renderPage = () => {
         if (currentPage === 'Home') {

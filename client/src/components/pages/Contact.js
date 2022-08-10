@@ -8,7 +8,7 @@ const App = () => (
         <PageHeader className="site-page-header"> Home </PageHeader>
         <Card>
             <Row>
-                <Col>
+                <Col> Something
                 </Col>
             </Row>
         </Card>

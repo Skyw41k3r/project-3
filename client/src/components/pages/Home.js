@@ -1,5 +1,6 @@
 import { Card, Col, Row, PageHeader } from "antd";
-import'../../App.css';
+import'../../../src/App.css';
+import 'antd/dist/antd.css';
 import React from "react";
 
 

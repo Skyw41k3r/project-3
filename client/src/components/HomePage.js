@@ -26,5 +26,5 @@ export default function HomePage() {
             {}
             {renderPage()}
         </div>
-    )
+    );
 }

@@ -1,6 +1,7 @@
 const express = require('express');
-// Imports ApolloServer clas
+// Imports ApolloServer class
 const { ApolloServer } = require('apollo-server-express');
+const path = require('path');
 
 // Imports the typeDefs and resolvers for GraphQL schema
 const { typeDefs, resolvers } = require('./schemas');

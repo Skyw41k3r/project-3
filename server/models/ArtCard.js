@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
-const multer = require('multer');
+
 const { schema } = mongoose;
 
 const artCardSchema = new schema({
     image: {
-        type: Image,
-        ref: 'Images',
-
+        type: String,
     },
     title: {
         type: String,
@@ -18,7 +16,8 @@ const artCardSchema = new schema({
         required: true,
     },
     price: {
-        type: int 
+        type: Number,
+        required: true 
     }
 });
 

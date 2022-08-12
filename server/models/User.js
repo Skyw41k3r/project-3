@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
-const multer = require('multer');
+
 const { schema } = mongoose;
 
 const bcrypt = require('bcrypt');
 const Order = require('./Order');
+const { ArtCard } = require('.');
 
 const userSchema = new schema({
     firstName: {
@@ -26,13 +27,14 @@ const userSchema = new schema({
         required: true,
         minlength: 5,
       },
+      artcards: [ArtCard.schema],
       orders: [Order.schema],
 });
 
 userSchema.pre('save', async function (next) {
     if (this.isNew || this.modified('password')) {
         const saltRounds = 13;
-        this.password = await bcrypt.hash(this.password, saltRound);
+        this.password = await bcrypt.hash(this.password, saltRounds);
     }
 
     next();

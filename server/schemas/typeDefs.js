@@ -6,28 +6,41 @@ type User {
     firstName: String
     lastName: String
     email: String
-    artcards: [ArtCard]!
+    artcards: [ArtCard]
+    orders: [Order]
 }
 
+type Auth {
+    token: ID
+    user: User
+}
 type ArtCard {
     _id: ID
-    image: [Image]
+    image: String
     title: String
     description: String
-    price: Integer
+    price: Float
 }
 
 type Query {
-    users: [User]!
+    user: User
     user(userId: ID!): User
-    artcards: [ArtCard]!
-    artcard(artcardId: ID!): ArtCard
+    artcards: [ArtCard]
+    artcard(_id: ID!): ArtCard
+    order(_id: ID!): Order
 
 type Mutation{
-    addUser(firstName: String!): User
+    addUser(
+        firstName: String!
+        lastName: String!
+        email: String!
+        password: String!
+    ): Auth
+    addOrder(products: [ID]!): Order
     addArtCard(userId: ID!, artcard: String): User
     deleteUser(userID: ID!): User
     deleteArtCard(userId: ID!, artcard: String): User
+    login(email: String!, password: String!): Auth
 }
 `;
 

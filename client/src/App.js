@@ -7,5 +7,3 @@ import Blog from './pages/Blog';
 import About from './pages/About';
 
 //add apollo
-
-import 

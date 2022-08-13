@@ -1,14 +1,16 @@
 import React from "react";
 import 'antd/dist/antd.css';
-import { Input } from 'antd';
+import { Input, Form, Upload, Button } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 
 
-const App = () => (
+const App = () => {
+  return (
     <div>
                 <Form.Item label="Upload" valuePropName="fileList">
           <Upload action="/upload.do" listType="picture-card">
             <div>
-              <PlusOutlined />
+              /*<PlusOutlined />*/
               <div
                 style={{
                   marginTop: 8,
@@ -25,6 +27,6 @@ const App = () => (
 
 
     </div>
-);
+)};
 
 export default App;

@@ -1,78 +1,58 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import {         } from 'antd';
+import { Button } from 'antd';
+import React from 'react';
 import SignUpForms from './SignupForms';
 import LoginForms from './LoginForms';
 import Auth from '../utils/auth';
+import { Breadcrumb, Layout, Menu } from 'antd';
+const { Header, Content, Footer } = Layout;
 
-
-const AppNavbar = () => {
+const App = () => {
     // set modal display state
-    const [showModal, setShowModal] = useState(false);
-  
-    return (
-      <>
-        <Navbar bg='dark' variant='dark' expand='lg'>
-          <Container fluid>
-            <Navbar.Brand as={Link} to='/'>
-              Google Books Search
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls='navbar' />
-            <Navbar.Collapse id='navbar'>
-              <Nav className='ml-auto'>
-                <Nav.Link as={Link} to='/'>
-                  Search For Books
-                </Nav.Link>
-                {/* if user is logged in show saved books and logout */}
-                {Auth.loggedIn() ? (
-                  <>
-                    <Nav.Link as={Link} to='/saved'>
-                      See Your Books
-                    </Nav.Link>
-                    <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
-                  </>
-                ) : (
-                  <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
-                )}
-              </Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
-        {/* set modal data up */}
-        <Modal
-          size='lg'
-          show={showModal}
-          onHide={() => setShowModal(false)}
-          aria-labelledby='signup-modal'>
-          {/* tab container to do either signup or login component */}
-          <Tab.Container defaultActiveKey='login'>
-            <Modal.Header closeButton>
-              <Modal.Title id='signup-modal'>
-                <Nav variant='pills'>
-                  <Nav.Item>
-                    <Nav.Link eventKey='login'>Login</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey='signup'>Sign Up</Nav.Link>
-                  </Nav.Item>
-                </Nav>
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Tab.Content>
-                <Tab.Pane eventKey='login'>
-                  <LoginForm handleModalClose={() => setShowModal(false)} />
-                </Tab.Pane>
-                <Tab.Pane eventKey='signup'>
-                  <SignUpForm handleModalClose={() => setShowModal(false)} />
-                </Tab.Pane>
-              </Tab.Content>
-            </Modal.Body>
-          </Tab.Container>
-        </Modal>
-      </>
-    );
-  };
-  
-  export default AppNavbar;
-  
+    <Layout className="layout">
+    <Header>
+      <div className="logo" />
+      <Menu
+        theme="dark"
+        mode="horizontal"
+        defaultSelectedKeys={['2']}
+        items={new Array(15).fill(null).map((_, index) => {
+          const key = index + 1;
+          return {
+            key,
+            label: `nav ${key}`,
+          };
+        })}
+      />
+    </Header>
+    <Content
+      style={{
+        padding: '0 50px',
+      }}
+    >
+      <Breadcrumb
+        style={{
+          margin: '16px 0',
+        }}
+      >
+        <Breadcrumb.Item>Home</Breadcrumb.Item>
+        <Breadcrumb.Item>Blog</Breadcrumb.Item>
+        <Breadcrumb.Item>About Us</Breadcrumb.Item>
+        <Breadcrumb.Item>Contact Us</Breadcrumb.Item>
+        <Breadcrumb.Item>LogIn</Breadcrumb.Item>
+        <Breadcrumb.Item>Sign Up</Breadcrumb.Item>
+      </Breadcrumb>
+      <div className="site-layout-content">Content</div>
+    </Content>
+    <Footer
+      style={{
+        textAlign: 'center',
+      }}
+    >
+     The Gallery from UofA Bootcamp.
+    </Footer>
+  </Layout>
+);
+
+export default App;

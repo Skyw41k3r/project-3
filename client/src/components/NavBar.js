@@ -9,6 +9,7 @@ const { Header, Content, Footer } = Layout;
 
 const App = () => {
     // set modal display state
+    return (
     <Layout className="layout">
     <Header>
       <div className="logo" />
@@ -16,7 +17,7 @@ const App = () => {
         theme="dark"
         mode="horizontal"
         defaultSelectedKeys={['2']}
-        items={new Array(15).fill(null).map((_, index) => {
+        items={new Array(4).fill(null).map((_, index) => {
           const key = index + 1;
           return {
             key,
@@ -52,6 +53,6 @@ const App = () => {
      The Gallery from UofA Bootcamp.
     </Footer>
   </Layout>
-};
+)};
 
 export default App;

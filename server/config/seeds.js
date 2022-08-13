@@ -6,7 +6,7 @@ db.once('open', async () => {
     
     await ArtCard.deleteMany();
   
-    await ArtCard.create([
+    const artcards = await ArtCard.insertMany([
       {
         image: 'stand in',
         title: 'An Imaginary piece of art',
@@ -42,6 +42,7 @@ db.once('open', async () => {
       lastName: 'Gurnison',
       email: 'seekingdoom@dwarfmail.com',
       password: 'dwarvesloveale88',
+      artcards: []
       
     });
   

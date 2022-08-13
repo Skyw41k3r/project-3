@@ -4,12 +4,12 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        users: async () => {
-            return User.find();
-        },
-        user: async (parent, { userId }) => {
-            return User.findOne({ _id: userId })
-            .populate('artcard');
+        user: async (parent, args, context) => {
+            if (context.user) {
+                const user = await (await User.findById(context.user.id)).populate('artcard');
+                return user;
+            } throw new AuthenticationError('Not logged in');
+           
         },
         artcards: async () => {
             return ArtCard.find({});
@@ -20,8 +20,10 @@ const resolvers = {
     },
 
     Mutation: {
-        addUser: async (parent, { firstName }) => {
-            return User.create({ firstName });
+        addUser: async (parent, args) => {
+            const user = await User.create(args);
+            const token = signToken(user);
+            return { token, user };
         },
         addArtCard: async (parent, { userId, artcard }) => {
             return User.findOneAndUpdate(
@@ -39,6 +41,21 @@ const resolvers = {
                 { $pull: { artcards: artcard } },
                 { new: true }
             );
+        },
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
+
+            if (!user) {
+                throw new AuthenticationError('Wrong email or password');
+            }
+            const correctPassword = await user.isCorrectPassword(password);
+
+            if (!correctPassword) {
+                throw new AuthenticationError('Wrong email or password');
+            }
+            const token = signToken(user);
+
+            return { token, user };
         },
     },
 };

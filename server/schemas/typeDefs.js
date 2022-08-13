@@ -7,7 +7,6 @@ type User {
     lastName: String
     email: String
     artcards: [ArtCard]
-    orders: [Order]
 }
 
 type Auth {
@@ -23,20 +22,19 @@ type ArtCard {
 }
 
 type Query {
-    user: User
     user(userId: ID!): User
     artcards: [ArtCard]
     artcard(_id: ID!): ArtCard
-    order(_id: ID!): Order
 
-type Mutation{
+}
+
+type Mutation {
     addUser(
         firstName: String!
         lastName: String!
         email: String!
         password: String!
     ): Auth
-    addOrder(products: [ID]!): Order
     addArtCard(userId: ID!, artcard: String): User
     deleteUser(userID: ID!): User
     deleteArtCard(userId: ID!, artcard: String): User

@@ -38,8 +38,7 @@ db.once('open', async () => {
     await User.deleteMany();
   
     await User.create({
-      firstName: 'Gotrek',
-      lastName: 'Gurnison',
+      username: 'GotrekGurnison',
       email: 'seekingdoom@dwarfmail.com',
       password: 'dwarvesloveale88',
       artcards: []
@@ -47,8 +46,7 @@ db.once('open', async () => {
     });
   
     await User.create({
-      firstName: 'Thorgrim',
-      lastName: 'Grudgebearer',
+      username: 'ThorgrimGrudgebearer',
       email: 'highking@dwarfmail.com',
       password: 'thatsgoinginthebook',
     });

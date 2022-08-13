@@ -7,12 +7,7 @@ const Order = require('./Order');
 const ArtCard = require('./ArtCard');
 
 const userSchema = new Schema({
-    firstName: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-      lastName: {
+    username: {
         type: String,
         required: true,
         trim: true,

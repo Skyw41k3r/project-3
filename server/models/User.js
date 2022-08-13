@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
-const { schema } = mongoose;
+const { Schema } = mongoose;
 
 const bcrypt = require('bcrypt');
 const Order = require('./Order');
-const { ArtCard } = require('.');
+const ArtCard = require('./ArtCard');
 
-const userSchema = new schema({
+const userSchema = new Schema({
     firstName: {
         type: String,
         required: true,

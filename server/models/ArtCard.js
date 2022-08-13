@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const { schema } = mongoose;
+const { Schema } = mongoose;
 
-const artCardSchema = new schema({
+const artCardSchema = new Schema({
     image: {
         type: String,
     },

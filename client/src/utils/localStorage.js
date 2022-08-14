@@ -23,7 +23,7 @@ const getSavedArtIds = () => {
       return false;
     }
   
-    const updatedSavedArtIds = savedArtIds.filter((savedBookId) => savedBookId !== bookId);
+    const updatedSavedArtIds = savedArtIds.filter((savedBookId) => savedBookId !== artId);
     localStorage.setItem('saved_art', JSON.stringify(updatedSavedArtIds));
   
     return true;

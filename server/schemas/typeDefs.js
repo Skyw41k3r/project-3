@@ -25,9 +25,8 @@ type ArtCard {
 type Query {
     users: [User]
     user(username: String!): User
-    artcards: [ArtCard]
-    artcard(_id: ID!): ArtCard
-
+    artcards(username: String): [ArtCard]
+    artcard(artId: ID!): ArtCard
 }
 
 type Mutation {
@@ -37,7 +36,7 @@ type Mutation {
         password: String!
     ): Auth
     addArtCard(title: String!): ArtCard
-    deleteArtCard(_id: ID!): ArtCard
+    deleteArtCard(artId: ID!): ArtCard
     login(email: String!, password: String!): Auth
 }
 `;

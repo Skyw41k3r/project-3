@@ -11,37 +11,42 @@ export const LOGIN = gql`
     }
 `;
 
-export const ADD_ORDER = gql`
-    mutation addOrder($artcards: [ID]!) {
-        addOrder(artcards: $artcards) {
-            purchaseDate
-            artcards {
+// export const ADD_ORDER = gql`
+//     mutation addOrder($artcards: [ID]!) {
+//         addOrder(artcards: $artcards) {
+//             purchaseDate
+//             artcards {
+//                 _id
+//                 title
+//                 description
+//                 price
+//             }
+//         }
+//     }
+// `;
+
+export const ADD_USER = gql`
+    mutation addUser(
+        $username: String!
+        $email: String!
+        $password: String!) {
+            token
+            user {
                 _id
-                title
-                description
-                price
+                username
             }
         }
     }
 `;
 
-export const ADD_USER = gql`
-    mutation addUser(
-        $firstName: String!
-        $lastName: String!
-        $email: String!
-        $password: String!
-    ) {
-        addUser(
-            firstName: $firstName
-            lastName: $lastName
-            email: $email
-            password: $password
-        ) {
-            token
-            user {
-                _id
-            }
+export const ADD_ARTCARD = gql`
+    mutation addArtcard($title: String!) {
+        addArtcard(title: $title) {
+            _id
+            image
+            title
+            description
+            price
         }
     }
 `;

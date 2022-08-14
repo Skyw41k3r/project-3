@@ -7,15 +7,15 @@ const resolvers = {
         users: async () => {
             return User.find({}).populate('artcards');
         },
-        user: async (parent, { id }) => {
-            return User.findById({ _id: id }).populate('artcards');
+        user: async (parent, { username }) => {
+            return User.findById({ username }).populate('artcards');
         },
         artcards: async (parent, { username }) => {
             const params = username ? { username } : {};
             return ArtCard.find(params).sort({ price: -1 });
         },
-        artcard: async (parent, { id }) => 
-            ArtCard.findById({ _id: id }),
+        artcard: async (parent, { artId }) => 
+            ArtCard.findById({ _id: artId }),
         },
 
     Mutation: {
@@ -37,10 +37,10 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        deleteArtCard: async (parent, { id }, context) => {
+        deleteArtCard: async (parent, { artId }, context) => {
             if (context.user) {
                 const artcard = await ArtCard.findByIdAndDelete(
-                    { _id: id }
+                    { _id: artId }
                 );
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },

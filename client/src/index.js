@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 //import apollo components and set up client
 import {ApolloClient, InMemoryCache, ApolloProvider,gql} from '@apollo/client'
-
+// use a client variable to gate app
 const client = new ApolloClient({
     uri: 'https://flyby-gateway.herokuapp.com/',
     cache: new InMemoryCache(),

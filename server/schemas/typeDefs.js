@@ -36,9 +36,8 @@ type Mutation {
         email: String!
         password: String!
     ): Auth
-    addArtCard(_id: ID!, artcard: String): User
-    deleteUser(_id: ID!): User
-    deleteArtCard(_id: ID!, artcard: String): User
+    addArtCard(title: String!): ArtCard
+    deleteArtCard(_id: ID!): ArtCard
     login(email: String!, password: String!): Auth
 }
 `;

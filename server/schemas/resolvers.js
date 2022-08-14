@@ -19,33 +19,41 @@ const resolvers = {
         },
 
     Mutation: {
-        addUser: async (parent, args) => {
-            const user = await User.create(args);
+        addUser: async (parent, { username, email, password }) => {
+            const user = await User.create({ username, email, password });
             const token = signToken(user);
             return { token, user };
         },
-        addArtCard: async (parent, { id, artcard }) => {
-            return User.findOneAndUpdate(
-                { _id: id },
-                { $addToSet: { artcards: artcard } },
-                { new: true }
-            );
+        addArtCard: async (parent, { title }, context) => {
+            if (context.user) {
+                const artcard = await ArtCard.create({
+                    title,
+                });
+                await User.findOneAndUpdate(
+                    { _id: context.user._id},
+                    { $addToSet: { artcards: artcard._id } }
+                );
+                return artcard;
+            }
+            throw new AuthenticationError('You need to be logged in!');
         },
-        deleteUser: async (parent, { id }) => {
-            return User.findOneAndDelete({ _id: id });
-        },
-        deleteArtCard: async (parent, { id, artcard }) => {
-            return User.findOneAndUpdate(
-                { _id: id },
-                { $pull: { artcards: artcard } },
-                { new: true }
-            );
+        deleteArtCard: async (parent, { id }, context) => {
+            if (context.user) {
+                const artcard = await ArtCard.findByIdAndDelete(
+                    { _id: id }
+                );
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { artcards: artcard._id } }
+                );
+                return artcard;
+            }
         },
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
 
             if (!user) {
-                throw new AuthenticationError('Np user found with this email');
+                throw new AuthenticationError('No user found with this email');
             }
             const correctPassword = await user.isCorrectPassword(password);
 

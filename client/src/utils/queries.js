@@ -15,8 +15,7 @@ export const QUERY_ALL_ARTCARDS = gql`
 export const QUERY_USER = gql`
     {
         user {
-            firstName
-            lastName
+            username
             artcards {
                 _id
                 image

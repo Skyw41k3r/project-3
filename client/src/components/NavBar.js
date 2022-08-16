@@ -6,25 +6,31 @@ import {
   Link,
   Routes
 } from "react-router-dom";
-import 'antd/dist/antd.css';
+
 
 export default function NavBar() {
   return (
     // <Router>
-      <div>
-        <nav>
-          <ul>
+      <div className="navbar">
+        <div className="container">
+          <span className="logo">DreamTeamArt</span>
+          <span>
+          <nav>
+          <ul className="primary-nav">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/Home" style={{ textDecoration: 'none' }}>Home</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/About" style={{ textDecoration: 'none' }}>About</Link>
             </li>
             <li>
-              <Link to="/blog">Blog</Link>
+              <Link to="/Blog" style={{ textDecoration: 'none' }}>Blog</Link>
             </li>
           </ul>
-        </nav>
+
+          </nav>
+          </span>
+        </div>
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}

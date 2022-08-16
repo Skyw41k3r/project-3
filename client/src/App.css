@@ -1,2 +1,40 @@
-@import '~antd/dist/antd.min.css';
-
+/* @import '~antd/dist/antd.min.css'; */
+.navbar {
+    background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    padding: 1em;
+}
+.navbar .logo {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size: 2em;
+}
+.primary-nav li{
+list-style: none;
+}
+.navbar .container {
+    display: grid;
+    grid-template-columns: 200px auto;
+    justify-content: unset;
+}
+.navbar nav{
+    display: flex;
+    justify-content: space-between;
+    background: none;
+    position: unset;
+    height: auto;
+    width: 100%;
+    padding: 0;
+}
+.navbar nav ul {
+    display: flex;
+}
+.navbar nav ul a {
+    color: black;
+    font-size: 1em;
+    padding: .1em 1em;
+}
+ul.primary-nav {
+    margin: 0;
+}

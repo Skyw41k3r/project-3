@@ -1,10 +1,10 @@
 import React from "react";
 import 'antd/dist/antd.css';
 
-const App = () => (
+const About = () => (
     <div>
         
     </div>
 );
 
-export default App;
+export default About;

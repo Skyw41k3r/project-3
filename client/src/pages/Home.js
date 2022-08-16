@@ -2,10 +2,10 @@ import React from "react";
 import { Card , Row } from 'antd';
 import 'antd/dist/antd.css';
 
-const App = () => (
+const Home = () => (
    <div>
     
    </div>
 );
 
-export default App;
+export default Home;

@@ -1,57 +1,55 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import SignUpForms from './SignupForms';
-import LoginForms from './LoginForms';
-import Auth from '../utils/auth';
-import { Breadcrumb, Layout, Menu } from 'antd';
-const { Header, Content, Footer } = Layout;
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Routes
+} from "react-router-dom";
 
-const App = () => {
-    // set modal display state
-    return (
-    <Layout className="layout">
-    <Header>
-      <div className="logo" />
-      <Menu
-        theme="dark"
-        mode="horizontal"
-        defaultSelectedKeys={['2']}
-        items={new Array(4).fill(null).map((_, index) => {
-          const key = index + 1;
-          return {
-            key,
-            label: `nav ${key}`,
-          };
-        })}
-      />
-    </Header>
-    <Content
-      style={{
-        padding: '0 50px',
-      }}
-    >
-      <Breadcrumb
-        style={{
-          margin: '16px 0',
-        }}
-      >
-        <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item>Blog</Breadcrumb.Item>
-        <Breadcrumb.Item>About Us</Breadcrumb.Item>
-        <Breadcrumb.Item>Contact Us</Breadcrumb.Item>
-        <Breadcrumb.Item>LogIn</Breadcrumb.Item>
-        <Breadcrumb.Item>Sign Up</Breadcrumb.Item>
-      </Breadcrumb>
-      <div className="site-layout-content">Content</div>
-    </Content>
-    <Footer
-      style={{
-        textAlign: 'center',
-      }}
-    >
-     The Gallery from UofA Bootcamp.
-    </Footer>
-  </Layout>
-)};
+export default function App() {
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/users">Users</Link>
+            </li>
+          </ul>
+        </nav>
 
-export default App;
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Routes>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/users">
+            <Users />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+function Home() {
+  return <h2>Home</h2>;
+}
+
+function About() {
+  return <h2>About</h2>;
+}
+
+function Users() {
+  return <h2>Users</h2>;
+}

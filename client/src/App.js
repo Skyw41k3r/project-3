@@ -6,6 +6,7 @@ import Blog from './pages/Blog';
 import About from './pages/About';
 import NavBar from './components/NavBar';
 import 'antd/dist/antd.css';
+import './App.css';
 
 //main page export
 function App() {

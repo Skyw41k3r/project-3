@@ -4,7 +4,7 @@ import { Input, Form, Upload, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 
-const App = () => {
+const Blog = () => {
   return (
     <div>
                 <Form.Item label="Upload" valuePropName="fileList">
@@ -29,4 +29,4 @@ const App = () => {
     </div>
 )};
 
-export default App;
+export default Blog;

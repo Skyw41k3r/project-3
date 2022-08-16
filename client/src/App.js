@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Blog from './pages/Blog';
 import About from './pages/About';
 import NavBar from './components/NavBar';
+import 'antd/dist/antd.css';
 
 //main page export
 function App() {
@@ -14,9 +15,9 @@ function App() {
         <>
         <NavBar />
         <Routes>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/About' component={About} />
-          <Route exact path='/Blog' component={Blog} />
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='/about' element={<About />} />
+          <Route exact path='/blog' element={<Blog />} />
           <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
         </Routes>
         </>

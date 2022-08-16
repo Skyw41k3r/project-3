@@ -7,9 +7,11 @@ import pixelDonut from '../images/pixel-donut.png';
 
 
 const Home = () => (
-   <Row justify="center">
+   <Row justify="center" className="home-row">
       <div>
+         
       <Card
+      className="home-card-1"
       hoverable
       style={{
          width: 240,
@@ -20,6 +22,7 @@ const Home = () => (
       </Card>
 
       <Card
+      className="home-card-2"
       hoverable
       style={{
          width: 240,
@@ -30,6 +33,7 @@ const Home = () => (
       </Card>
 
       <Card
+      className="home-card-3"
       hoverable
       style={{
          width: 240,

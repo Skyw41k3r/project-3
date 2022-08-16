@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'antd';
 import SignUpForms from './SignupForms';
 import LoginForms from './LoginForms';
 import Auth from '../utils/auth';

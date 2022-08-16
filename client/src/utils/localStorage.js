@@ -1,3 +1,4 @@
+// gather saved art from the local db
 const getSavedArtIds = () => {
     const savedArtIds = localStorage.getItem('saved_art')
       ? JSON.parse(localStorage.getItem('saved_art'))
@@ -5,7 +6,7 @@ const getSavedArtIds = () => {
   
     return savedArtIds;
   };
-  
+// 
    const saveArtIds = (artIdArr) => {
     if (artIdArr.length) {
       localStorage.setItem('saved_art', JSON.stringify(artIdArr));

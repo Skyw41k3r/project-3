@@ -1,20 +1,39 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { User, ArtCard, Order } = require('../models');
+const { AuthenticationError, UserInputError } = require('apollo-server-express');
+const { User, ArtCard, Comments } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
         users: async () => {
-            return User.find({}).populate('artcards');
+            return User.find({}).populate('comments');
         },
         user: async (parent, { username }) => {
-            return User.findById({ username }).populate('artcards');
+            return User.findById({ username }).populate('comments');
         },
-        artcards: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            return ArtCard.find(params).sort({ price: -1 });
+        getComments: async () => {
+            try {
+                const comments = await Comments.find().sort({ createdAt: -1});
+                return comments
+            } catch (err) {
+                throw new Error(err);
+            }
+        }, 
+        getComment: async (parent, { commentId }) => {
+            try { 
+                const comment = await Comments.findById(commentId);
+                if (comment) {
+                    return comment;
+                } else { 
+                    throw new Error('Comment not found');
+                }
+            } catch(err) {
+                throw new Error(err);
+            }
         },
-        artcard: async (parent, { artId }) => 
+        artCards: async () => {
+            return ArtCard.find({}).populate('comments').populate('likes');
+        },
+        artCard: async (parent, { artId }) => 
             ArtCard.findById({ _id: artId }),
         },
 
@@ -24,29 +43,38 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        addArtCard: async (parent, { title }, context) => {
-            if (context.user) {
-                const artcard = await ArtCard.create({
-                    title,
+        createComment: async (parent, { artId, body }, context) => {
+            const { username }= signToken(context);
+            if (body.trim() === '') {
+                throw new UserInputError('Empty comment', {
+                    errors: { message: 'Comment box must not be empty'}
                 });
-                await User.findOneAndUpdate(
-                    { _id: context.user._id},
-                    { $addToSet: { artcards: artcard._id } }
-                );
-                return artcard;
             }
-            throw new AuthenticationError('You need to be logged in!');
-        },
-        deleteArtCard: async (parent, { artId }, context) => {
-            if (context.user) {
-                const artcard = await ArtCard.findByIdAndDelete(
-                    { _id: artId }
-                );
-                await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $pull: { artcards: artcard._id } }
-                );
+                const artcard = await ArtCard.findById(artId);
+                if (artcard) {
+                    artcard.comments.unshift({
+                        body,
+                        username,
+                        createdAt: new Date().toISOString()
+                });
+                await artcard.save();
                 return artcard;
+            } else throw new UserInputError('Comment not found');
+        },
+        deleteComment: async (parent, { artId, commentId }, context) => {
+            const { username } = signToken(context);
+            const artcard = await ArtCard.findById(artId);
+            if (artcard) {
+                const commentIndex = post.comments.findIndex((comment) => comment.id === commentId);
+                if (artcard.comments[commentIndex].username === username) {
+                    artcard.comments.splice(commentIndex, 1);
+                    await post.save();
+                    return artcard;
+                } else {
+                    throw new AuthenticationError('Must be logged in!');
+                }
+            } else { 
+                throw new UserInputError('No comment found');
             }
         },
         login: async (parent, { email, password }) => {
@@ -64,6 +92,22 @@ const resolvers = {
 
             return { token, user };
         },
+        likeArtCard: async (parent, { artId}, context) => {
+            const { username } = signToken(context);
+            const artcard = await ArtCard.findById(artId);
+            if (artcard) {
+                if (artcard.likes.find((like) => like.username === username)) {
+                    artcard.likes = artcard.likes.filter((like) => like.username !== username);
+                } else {
+                    post.likes.push({
+                        username,
+                        createdAt: new Date().toISOString()
+                    });
+                }
+                await artcard.save();
+                return artcard;
+            } else throw new UserInputError('No Art found');
+        }
     },
 };
 

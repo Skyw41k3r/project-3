@@ -3,21 +3,19 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const commentSchema = new Schema({
-    comment: {
+    username: {
         type: String,
         minLength: 1,
         maxLength: 50,
     },
-    commentDate: {
+    createdAt: {
         type: Date,
         default: Date.now,
     },
-    // artcards: [
-    //     {
-    //         type: Schema.Types.ObjectId,
-    //         ref: 'ArtCard',
-    //     },
-    // ],
+    body: {
+        type: String,
+        required: true
+    }
 });
 
 const Comment = mongoose.model('Comment', commentSchema);

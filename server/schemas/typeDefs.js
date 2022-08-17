@@ -2,11 +2,12 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 type User {
-    _id: ID
-    username: String
-    email: String
+    _id: ID!
+    username: String!
+    email: String!
+    token: String
     password: String
-    artcards: [ArtCard]
+    comments: [Comment]!
 }
 
 type Auth {
@@ -14,19 +15,36 @@ type Auth {
     user: User
 }
 
+type Comment {
+    _id: ID
+    username: String
+    createdAt: Date
+    body: String
+}
+
 type ArtCard {
     _id: ID
     image: String
     title: String
     description: String
-    price: Float
+    comments: [Comment]
+    likes: [Like]!
+    likeCount: Int
+}
+
+type Like {
+    _id: ID
+    createdAt: String
+    username: String
 }
 
 type Query {
     users: [User]
     user(username: String!): User
-    artcards(username: String): [ArtCard]
-    artcard(artId: ID!): ArtCard
+    getComments:[Comment]
+    getComment(commentId: ID!): Comment
+    artCards(username: String): [ArtCard]
+    artCard(artId: ID!): ArtCard
 }
 
 type Mutation {
@@ -35,9 +53,10 @@ type Mutation {
         email: String!
         password: String!
     ): Auth
-    addArtCard(title: String!): ArtCard
-    deleteArtCard(artId: ID!): ArtCard
-    login(email: String!, password: String!): Auth
+    login(username: String!, password: String!): Auth
+    createComment(artId: String!, body: String!): ArtCard
+    deleteComment(artId: ID!, commentId: ID): ArtCard
+    likeArtCard(artId: ID!): ArtCard
 }
 `;
 

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const bcrypt = require('bcrypt');
-const Order = require('./Order');
+const Order = require('./Comments');
 const ArtCard = require('./ArtCard');
 
 const userSchema = new Schema({
@@ -23,7 +23,7 @@ const userSchema = new Schema({
         minlength: 5,
       },
       artcards: [ArtCard.schema],
-      orders: [Order.schema],
+      
 });
 
 userSchema.pre('save', async function (next) {

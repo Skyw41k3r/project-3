@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const commentSchema = require('./Comments')
 
 const { Schema } = mongoose;
 
@@ -15,9 +16,10 @@ const artCardSchema = new Schema({
         type: String,
         required: true,
     },
-    price: {
-        type: Number,
-        required: true 
+    Comments: {
+        type: String,
+        required: false,
+        Comment: [commentSchema],
     }
 });
 

@@ -32,6 +32,9 @@ const Home = () => (
    <div className="secondary-container">
    <Row justify="center" className="home-row">
       <div>
+
+
+
       <Card
       className="home-card-1"
       hoverable
@@ -40,6 +43,7 @@ const Home = () => (
       }}
       cover={<img alt="example" src={pixelOrc} />}
       >
+      
       Heres where we can include our database info
       </Card>
 

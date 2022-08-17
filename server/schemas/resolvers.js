@@ -78,6 +78,7 @@ const resolvers = {
             }
         },
         login: async (parent, { email, password }) => {
+            console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIT")
             const user = await User.findOne({ email });
 
             if (!user) {

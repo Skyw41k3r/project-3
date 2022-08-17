@@ -26,44 +26,6 @@ const Home = () => (
             <a className="secondary-cta"> Sign In</a>
           </Link>
         </div>
-
-   <div>
-   <div>
-   <div className="main-container">
-   <div className="left-container">
-     <h1>Afforable Art a Click Away</h1>
-     <p> Sign Up for exclusive discounts and deals. You'll meet our artists, 24/7 consulting - and more.</p>
-     <Link to="/"><a className="primary-cta">Sign Up</a></Link>
-     <Link to = "/"><a className = "secondary-cta"> Sign In</a></Link>
-   </div>
-
-   <div className="right-container">
-   <div className="image-container">
-     picture here
-   </div>
-   </div>
-
-   </div>
-  </div>
-   <div className="secondary-container">
-   <Row justify="center" className="home-row">
-      <div>
-
-
-
-      <Card
-      className="home-card-1"
-      hoverable
-      style={{
-         width: 240,
-      }}
-      cover={<img alt="example" src={pixelOrc} />}
-      >
-      
-      Heres where we can include our database info
-      </Card>
-
-
         <div className="right-container">
           <div className="image-container">picture here</div>
         </div>

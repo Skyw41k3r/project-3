@@ -1,7 +1,7 @@
 /* @import '~antd/dist/antd.min.css'; */
 .navbar {
-    background: rgb(34,193,195);
-background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    background: rgb(229,210,196);
+    background: linear-gradient(0deg, rgba(229,210,196,1) 0%, rgba(183,110,121,1) 100%);
     padding: 1em;
 }
 .navbar .logo {
@@ -37,4 +37,42 @@ list-style: none;
 }
 ul.primary-nav {
     margin: 0;
+}
+.main-container{
+    text-align: center;
+    background-color: beige;
+    width: 100%;
+    display: flex;
+    height: 30em;
+  
+}
+.left-container{
+    background-color: #E5D2C4;
+    width: 50%;
+    float: left;
+    padding: 5em;
+}
+.right-container{
+    width: 50%;
+    float: left;
+    background: rgb(183,110,121);
+    background: radial-gradient(circle, rgba(183,110,121,1) 0%, rgba(229,210,196,1) 100%);
+}
+.primary-cta{
+    background:#5e7168;
+    color: white;
+    text-decoration: none;
+    padding: .6em 1.3em;
+    font-size: 1.4em;
+    border-radius: 5em;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 1em;
+}
+.image-container{
+padding-top: 5em;
+font-size: 2.5em;
+
+}
+.secondary-container{
 }

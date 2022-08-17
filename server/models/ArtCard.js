@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const commentSchema = require('./Comments')
+const Comments = require('./Comments');
+const User = require('./User');
 
 const { Schema } = mongoose;
 
@@ -16,11 +17,14 @@ const artCardSchema = new Schema({
         type: String,
         required: true,
     },
-    comments: {
-        type: String,
-        required: false,
-        Comment: [commentSchema],
-    }
+    comments: [Comments.schema],
+    likes: [
+        {
+            username: String,
+            createdAt: String
+        }
+    ],
+    user: [User.schema]
 });
 
 const ArtCard = mongoose.model('ArtCard', artCardSchema);

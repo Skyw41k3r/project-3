@@ -77,9 +77,9 @@ const resolvers = {
                 throw new UserInputError('No comment found');
             }
         },
-        login: async (parent, { email, password }) => {
+        login: async (parent, { username, password }) => {
             console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIT")
-            const user = await User.findOne({ email });
+            const user = await User.findOne({ username });
 
             if (!user) {
                 throw new AuthenticationError('No user found with this email');

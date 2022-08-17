@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Row, Col, Divider } from "antd";
+import { Card, Row, Col, } from "antd";
 import "antd/dist/antd.css";
 import { LikeOutlined, DislikeOutlined,CommentOutlined } from "@ant-design/icons";
 import pixelOrc from "../images/pixel-orc.png";
@@ -33,9 +33,8 @@ const Home = () => (
     </div>
     <div className="secondary-container">
       <Row className="home-row" orientation="left" >
-        <div >
-         <div className="card-li">
-            <Col>
+          <div className="card-li">
+            <Col span={8}>
           <Card
             className="home-card"
             hoverable
@@ -64,7 +63,94 @@ const Home = () => (
           </Col>
           </div>
           <div className="card-li">
-          <Col>
+            <Col span={8}>
+          <Card
+            className="home-card"
+            hoverable
+            style={{
+              width: 240,
+            }}
+            cover={<img alt="example" src={pixelOrc} />}
+          >
+            <div className="card-container">
+              <div className="db-comment">
+                Here where we can include our database info
+              </div>
+              <div className="likeandcomment">
+                <div className="likebtn">
+                  <LikeOutlined />
+                </div>
+                <div className="dislikebtn">
+                  <DislikeOutlined />
+                </div>
+                <div className="commentbtn">
+                <CommentOutlined />
+                </div>
+              </div>
+            </div>
+          </Card>
+          </Col>
+          </div>
+          <div className="card-li">
+            <Col span={8}>
+          <Card
+            className="home-card"
+            hoverable
+            style={{
+              width: 240,
+            }}
+            cover={<img alt="example" src={pixelOrc} />}
+          >
+            <div className="card-container">
+              <div className="db-comment">
+                Here where we can include our database info
+              </div>
+              <div className="likeandcomment">
+                <div className="likebtn">
+                  <LikeOutlined />
+                </div>
+                <div className="dislikebtn">
+                  <DislikeOutlined />
+                </div>
+                <div className="commentbtn">
+                <CommentOutlined />
+                </div>
+              </div>
+            </div>
+          </Card>
+          </Col>
+          </div>
+          <div className="card-li">
+            <Col span={8}>
+          <Card
+            className="home-card"
+            hoverable
+            style={{
+              width: 240,
+            }}
+            cover={<img alt="example" src={pixelOrc} />}
+          >
+            <div className="card-container">
+              <div className="db-comment">
+                Here where we can include our database info
+              </div>
+              <div className="likeandcomment">
+                <div className="likebtn">
+                  <LikeOutlined />
+                </div>
+                <div className="dislikebtn">
+                  <DislikeOutlined />
+                </div>
+                <div className="commentbtn">
+                <CommentOutlined />
+                </div>
+              </div>
+            </div>
+          </Card>
+          </Col>
+          </div>
+          <div className="card-li">
+          <Col span={8}>
           <Card
             className="home-card"
             hoverable
@@ -93,7 +179,7 @@ const Home = () => (
           </Col>
           </div>
           <div className="card-li">
-          <Col>
+          <Col span={8}>
           <Card
             className="home-card"
             hoverable
@@ -121,7 +207,6 @@ const Home = () => (
           </Card>
           </Col>
           </div>
-        </div>
       </Row>
     </div>
   </div>

@@ -51,7 +51,7 @@ const Home = () => (
       }}
       cover={<img alt="example" src={pixelSkull} />}
       > 
-      Heres where we can include our database info
+      Here where we can include our database info
       </Card>
 
       <Card

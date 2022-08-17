@@ -1,24 +1,24 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_ALL_ARTCARDS = gql`
-    query getArtcards {
-        artcards {
+    query ArtCards {
+        artCard {
             _id
             image
             title
             description
-            price
+            comments
         }
     }
 `;
 export const QUERY_SINGLE_ARTCARD = gql`
-    query getSingleArtcard($artId: ID!) {
-        artcard(artId: $artId) {
+    query ArtCard($artId: ID!) {
+        artCard(artId: $artId) {
             _id
             image
             title
             description
-            price
+            comments
         }
     }
 `;
@@ -39,5 +39,23 @@ export const QUERY_USER = gql`
         }
     }
 `;
+ export const QUERY_ALL_COMMENTS = gql`
+    query getComments {
+        comments{
+            _id
+            username
+            createdAt
+            body
+        }
+    }
+`;
+export const QUERY_SINGLE_COMMENT = gql`
+    query getComment {$commentId: ID!) {
+        comment(commentId: $commentId) {
+            _id
+            username
+            createdAt
+            body
+        }
 
-// QUERY ME
+    } }`

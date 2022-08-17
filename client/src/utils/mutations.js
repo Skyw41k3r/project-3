@@ -11,20 +11,6 @@ export const LOGIN = gql`
     }
 `;
 
-// export const ADD_ORDER = gql`
-//     mutation addOrder($artcards: [ID]!) {
-//         addOrder(artcards: $artcards) {
-//             purchaseDate
-//             artcards {
-//                 _id
-//                 title
-//                 description
-//                 price
-//             }
-//         }
-//     }
-// `;
-
 export const ADD_USER = gql`
     mutation addUser(
         $username: String!
@@ -39,14 +25,27 @@ export const ADD_USER = gql`
     }
 `;
 
-export const ADD_ARTCARD = gql`
-    mutation addArtcard($title: String!) {
-        addArtcard(title: $title) {
-            _id
-            image
-            title
-            description
-            price
+export const CREATE_COMMENT = gql`
+    mutation createComment(
+        $artId: ID!, $body: String!) {
+            createComment(body: $body) {
+                _id
+                username
+                createdAt
+                body
+            }
         }
-    }
+    )
+`;
+
+export const LIKE_ARTCARD = gql`
+    mutation likeArtCard (
+        $artId: ID!) {
+            likeArtCard( artId: $ID){
+                _id
+                createdAt
+                username
+            }
+        }, 
+    )
 `;

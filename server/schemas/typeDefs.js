@@ -18,7 +18,7 @@ type Auth {
 type Comment {
     _id: ID
     username: String
-    createdAt: Date
+    createdAt: String
     body: String
 }
 

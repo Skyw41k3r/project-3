@@ -1,4 +1,4 @@
-/* @import '~antd/dist/antd.min.css'; */
+/*@import '~antd/dist/antd.min.css'; */
 .navbar {
     background: rgb(229,210,196);
     background: linear-gradient(0deg, rgba(229,210,196,1) 0%, rgba(183,110,121,1) 100%);
@@ -74,5 +74,28 @@ padding-top: 5em;
 font-size: 2.5em;
 
 }
-.secondary-container{
+.card-container{
+    text-align:center;
+    width: 100%;
+}
+.db-comment{
+    width: 100%;
+    text-align: center;
+}
+.likeandcomment{
+    width: 100%;
+    display: flex;
+}
+.likebtn{
+    float: left;
+    width: 33.3%;
+}
+.dislikebtn{
+    float: left;
+    width: 33.3%;
+}
+.commentbtn{
+    
+    float: left;
+    width: 33.3%;
 }

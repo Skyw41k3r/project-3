@@ -18,7 +18,7 @@ export default function NavBar() {
           <nav>
           <ul className="primary-nav">
             <li>
-              <Link to="/Home" style={{ textDecoration: 'none' }}>Home</Link>
+              <Link to="/" style={{ textDecoration: 'none' }}>Home</Link>
             </li>
             <li>
               <Link to="/About" style={{ textDecoration: 'none' }}>About</Link>

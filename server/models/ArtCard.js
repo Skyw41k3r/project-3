@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const Comments = require('./Comments');
+const User = require('./User');
 
 const { Schema } = mongoose;
 
@@ -15,10 +17,14 @@ const artCardSchema = new Schema({
         type: String,
         required: true,
     },
-    price: {
-        type: Number,
-        required: true 
-    }
+    comments: [Comments.schema],
+    likes: [
+        {
+            username: String,
+            createdAt: String
+        }
+    ],
+    user: [User.schema]
 });
 
 const ArtCard = mongoose.model('ArtCard', artCardSchema);

@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Blog from './pages/Blog';
 import About from './pages/About';
 import NavBar from './components/NavBar';
+import Login from './pages/Login'
 import 'antd/dist/antd.css';
 import './App.css';
 
@@ -19,6 +20,7 @@ function App() {
           <Route exact path='/' element={<Home />} />
           <Route exact path='/about' element={<About />} />
           <Route exact path='/blog' element={<Blog />} />
+          <Route exact path='/Login' element={<Login />} />
           <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
         </Routes>
         </>

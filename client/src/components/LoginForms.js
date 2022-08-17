@@ -1,7 +1,7 @@
 import { Button, Checkbox, Form, Input } from 'antd';
 import React from 'react';
 
-const LoginForm = () => {
+const LoginForms = () => {
   const onFinish = (values) => {
     console.log('Success:', values);
   };
@@ -77,4 +77,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default LoginForms;

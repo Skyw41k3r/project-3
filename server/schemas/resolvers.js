@@ -78,17 +78,22 @@ const resolvers = {
             }
         },
         login: async (parent, { username, password }) => {
-            console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIT")
+            console.log("HIT!")
             const user = await User.findOne({ username });
 
             if (!user) {
                 throw new AuthenticationError('No user found with this username');
+                
             }
+            console.log("hit hit!")
+            //something broken from here
             const correctPassword = await user.isCorrectPassword(password);
 
             if (!correctPassword) {
                 throw new AuthenticationError('Wrong email or password');
             }
+            //to here
+            console.log("hit hit hit!")
             const token = signToken(user);
 
             return { token, user };

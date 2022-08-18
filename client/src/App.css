@@ -114,3 +114,115 @@ font-size: 2.5em;
     background: rgb(255,238,240);
     background: linear-gradient(0deg, rgba(255,238,240,1) 0%, rgba(229,210,196,1) 200%);
 }
+.first-div{
+    display: flex;
+    height: 20.75em;
+    background-color: #E5D2C4;
+}
+.first-left{
+    height: 20.75em;
+    width: 50%;
+    background-color: #E5D2C4;
+}
+.first-right{
+    height: 20.75em;
+    width: 50%;
+    background-color: #E5D2C4;
+}
+.second-div{
+    display: flex;
+    height: 20.75em;
+    background-color: #E5D2C4;
+}
+.second-left{
+    height: 20.75em;
+    width: 50%;
+    background-color: #E5D2C4;
+  
+}
+.second-right{
+    height: 20.75em;
+    width: 50%;
+    background-color: #E5D2C4;
+}
+.third-div{
+    display: flex;
+    height: 20.75em;
+    background-color: #E5D2C4;
+}
+.third-left{
+    height: 20.75em;
+    width: 50%;
+    background-color: #E5D2C4;
+  
+}
+.third-right{
+    height: 20.75em;
+    width: 50%;
+    background-color: #E5D2C4;
+}
+.fourth-div{
+    display: flex;
+    height: 20.75em;
+    background-color: #E5D2C4;
+}
+.fourth-left{
+    height: 20.75em;
+    width: 50%;
+    background-color: #E5D2C4;
+}
+.fourth-right{
+    height: 20.75em;
+    width: 50%;
+    background-color: #E5D2C4;
+}
+.fifth-div{
+    display: flex;
+    height: 20.75em;
+    background-color: #E5D2C4;
+}
+.fifth-left{
+    height: 20.75em;
+    width: 50%;
+    background-color: #E5D2C4;
+  
+}
+.fifth-right{
+    height: 20.75em;
+    width: 50%;
+    background-color: #E5D2C4;
+}
+.about-story{
+    background: rgb(183,110,121);
+    background: radial-gradient(circle, rgba(183,110,121,1) 0%, rgba(229,210,196,1) 100%);
+    padding-bottom: 15em;
+    text-align: center;
+}
+.about-header{
+    padding-top: 2em ;
+    font-size: 3em;
+    margin-left: 16.7%;
+    margin-right: 16.7%;
+}
+.about-paragraph{
+    padding-top: 4em;
+    margin-left: 16.7%;
+    margin-right: 16.7%;
+}
+.img{
+    width: 10em;
+    height: 10em;
+    border: 5px solid rgb(183,110,121);
+    border: radial-gradient(circle, rgba(183,110,121,1) 0%, rgba(229,210,196,1) 100%);
+    border-radius: 50%;
+    margin-top: -4.5em;
+}
+blockquote{
+    text-align: center;
+    padding: 2%;
+    font-style: italic;
+}
+h4{
+    text-align: center;
+    padding: 1em;
+}

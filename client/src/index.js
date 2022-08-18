@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {ApolloClient, InMemoryCache, ApolloProvider,gql} from '@apollo/client'
 // use a client variable to gate app
 const client = new ApolloClient({
-    uri: 'https://flyby-gateway.herokuapp.com/',
+    uri: 'https://localhost:5001/graphql',
     cache: new InMemoryCache(),
   });
 

@@ -82,7 +82,7 @@ const resolvers = {
             const user = await User.findOne({ username });
 
             if (!user) {
-                throw new AuthenticationError('No user found with this email');
+                throw new AuthenticationError('No user found with this username');
             }
             const correctPassword = await user.isCorrectPassword(password);
 

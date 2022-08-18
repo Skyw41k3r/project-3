@@ -90,8 +90,8 @@ const resolvers = {
             const correctPassword = await user.isCorrectPassword(password);
 
             if (!correctPassword) {
-                throw new AuthenticationError('Wrong email or password');
-            }
+                 throw new AuthenticationError('Wrong email or password');
+             }
             //to here
             console.log("hit hit hit!")
             const token = signToken(user);

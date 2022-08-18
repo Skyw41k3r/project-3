@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Row, Col, } from "antd";
 import "antd/dist/antd.css";
 import { LikeOutlined, DislikeOutlined,CommentOutlined } from "@ant-design/icons";
+import large from "../images/large.jpg"
 import pixelOrc from "../images/pixel-orc.png";
 import pixelSkull from "../images/pixel-skull.png";
 import pixelDonut from "../images/pixel-donut.png";
@@ -27,7 +28,10 @@ const Home = () => (
           </Link>
         </div>
         <div className="right-container">
-          <div className="image-container">picture here</div>
+        <img src={large}></img>
+        <div className="image-container">
+            
+          </div>
         </div>
       </div>
     </div>

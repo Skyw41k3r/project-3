@@ -2,12 +2,13 @@ const express = require('express');
 // Imports ApolloServer class
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
+require('dotenv').config();
 
 // Imports the typeDefs and resolvers for GraphQL schema
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
     typeDefs, // Menu

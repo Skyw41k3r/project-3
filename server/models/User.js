@@ -26,7 +26,7 @@ const userSchema = new Schema({
 });
 
 userSchema.pre('save', async function (next) {
-    if (this.isNew || this.modified('password')) {
+    if (this.isNew || this.isModified('password')) {
         const saltRounds = 13;
         this.password = await bcrypt.hash(this.password, saltRounds);
     }
@@ -35,7 +35,7 @@ userSchema.pre('save', async function (next) {
 });
 
 userSchema.methods.isCorrectPassword = async function (password) {
-    await bcrypt.compare(password, this.password);
+  return await bcrypt.compare(password, this.password);
 };
 
 const User = mongoose.model('User', userSchema);

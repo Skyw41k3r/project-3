@@ -11,20 +11,20 @@ const db = require('./config/connection');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
-    typeDefs, // Menu
-    resolvers, // Kitchen
+    typeDefs, 
+    resolvers, 
 });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// if (process.env.NODE_ENV === 'development') {
-//     app.use(express.static(path.join(__dirname, '../client/build')));
-// }
+ if (process.env.NODE_ENV === 'development') {
+     app.use(express.static(path.join(__dirname, '../client/build')));
+ }
 
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../client/build/index.html'));
-// });
+ app.get('/', (req, res) => {
+     res.sendFile(path.join(__dirname, '../client/build/index.html'));
+ });
 
 // Creates a new Apollo server with GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {

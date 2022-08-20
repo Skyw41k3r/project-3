@@ -10,6 +10,12 @@ const resolvers = {
         user: async (parent, { username }) => {
             return User.findById({ username }).populate('comments');
         },
+        me: async (parent, args, context) => {
+            if (context.user) {
+                return User.findOne({ _id: context.user._id })
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
         getComments: async () => {
             try {
                 const comments = await Comments.find().sort({ createdAt: -1});

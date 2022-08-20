@@ -41,6 +41,7 @@ type Like {
 type Query {
     users: [User]
     user(username: String!): User
+    me: User
     getComments:[Comment]
     getComment(commentId: ID!): Comment
     artCards(username: String): [ArtCard]

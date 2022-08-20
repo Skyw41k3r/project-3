@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import { LOGIN_USER } from '../utils/mutations';
+import  Signup  from '../components/SignupForms';
 import Auth from '../utils/auth';
 
 const Login = (props) => {
@@ -75,7 +76,9 @@ const Login = (props) => {
           <button type="submit">Submit</button>
         </div>
       </form>
+      <Signup />
     </div>
+    
   );
 }
 

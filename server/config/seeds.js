@@ -1,58 +1,25 @@
-// const db = require('./connection');
-// const { ArtCard, User } = require('../models');
+const db = require('./connection');
+const { ArtCard, User } = require('../models');
 
 
-// db.once('open', async () => {
+db.once('open', async () => {
     
-//     await ArtCard.deleteMany();
+    await User.deleteMany();
   
-//     const artcards = await ArtCard.insertMany([
-//       {
-//         image: 'stand in',
-//         title: 'An Imaginary piece of art',
-//         description: 'Whatever you can imagine',
-//         price: '13.13'
-//       },
-//       {
-//         image: 'stand in',
-//         title: 'An Imaginary piece of art',
-//         description: 'Whatever you can imagine',
-//         price: '13.13'
-//       },
-//       {
-//         image: 'stand in',
-//         title: 'An Imaginary piece of art',
-//         description: 'Whatever you can imagine',
-//         price: '13.13'
-//       },
-//       {
-//         image: 'stand in',
-//         title: 'An Imaginary piece of art',
-//         description: 'Whatever you can imagine',
-//         price: '13.13'
-//       },
-//     ]);
+    await User.create({
+      username: 'GotrekGurnison',
+      email: 'seekingdoom@dwarfmail.com',
+      password: 'onedwarf',
+    });
   
-//     console.log('Art Cards seeded');
+    await User.create({
+      username: 'ThorgrimGrudgebearer',
+      email: 'highking@dwarfmail.com',
+      password: 'twodwarf',
+    });
   
-//     await User.deleteMany();
+    console.log('users seeded');
   
-//     await User.create({
-//       username: 'GotrekGurnison',
-//       email: 'seekingdoom@dwarfmail.com',
-//       password: 'dwarvesloveale88',
-//       artcards: []
-      
-//     });
-  
-//     await User.create({
-//       username: 'ThorgrimGrudgebearer',
-//       email: 'highking@dwarfmail.com',
-//       password: 'thatsgoinginthebook',
-//     });
-  
-//     console.log('users seeded');
-  
-//     process.exit();
-//   });
+    process.exit();
+  });
   

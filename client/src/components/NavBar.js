@@ -24,7 +24,7 @@ export default function NavBar() {
               <Link to="/Blog" style={{ textDecoration: 'none' }}>Blog</Link>
             </li>
             <li>
-              <Link to="/Login" style={{textDecoration: 'none'}}>Login</Link>
+              <Link to="/Login" style={{textDecoration: 'none'}}>Login/Signup</Link>
             </li>
           </ul>
           </nav>

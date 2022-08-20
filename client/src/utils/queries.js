@@ -39,6 +39,26 @@ export const QUERY_USER = gql`
         }
     }
 `;
+
+export const QUERY_ME = gql`
+    query me {
+        me {
+            _id
+            username
+            email
+            artcards {
+                _id
+                image
+                title
+                description
+                comments {
+                    username
+                    createdAt
+                    body
+                }
+            }
+        }
+    }`
  export const QUERY_ALL_COMMENTS = gql`
     query getComments {
         comments{

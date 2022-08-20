@@ -87,7 +87,7 @@ const resolvers = {
             }
             console.log("hit hit!")
             //something broken from here
-            const correctPassword = await user.isCorrectPassword(password);
+            const correctPassword = await User.isCorrectPassword(password);
 
             if (!correctPassword) {
                 throw new AuthenticationError('Wrong email or password');
@@ -114,7 +114,7 @@ const resolvers = {
                 await artcard.save();
                 return artcard;
             } else throw new UserInputError('No Art found');
-        }
+        },
     },
 };
 

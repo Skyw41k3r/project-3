@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {ApolloClient, InMemoryCache, ApolloProvider,gql} from '@apollo/client'
 // use a client variable to gate app
 const client = new ApolloClient({
-    uri: 'graphQl',
+    uri: '/graphql',
     cache: new InMemoryCache(),
   });
 

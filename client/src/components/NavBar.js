@@ -6,6 +6,11 @@ import {
 
 
 export default function NavBar() {
+  const user = localStorage.getItem('id_token')
+  const logout = () => {
+    localStorage.clear()
+    window.location.reload(false)
+  }
   return (
     // <Router>
       <div className="navbar">
@@ -23,9 +28,11 @@ export default function NavBar() {
             <li>
               <Link to="/Blog" style={{ textDecoration: 'none' }}>Blog</Link>
             </li>
-            <li>
+            {user ? <li>
+              <Link to='/' onClick={logout} style={{textDecoration: 'none'}}>Logout</Link>
+            </li>: <li>
               <Link to="/Login" style={{textDecoration: 'none'}}>Login/Signup</Link>
-            </li>
+            </li>} 
           </ul>
           </nav>
           </span>
